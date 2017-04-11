@@ -6,13 +6,11 @@
 		"subtopic": 
 		[
 				{
-					"1": 
+					"text": 
 					
 					[
 
-						{
-						"text": "1.1 Aiheen vaativuus"
-					},
+								"1.1 Aiheen vaativuus",
 								"Aiheen valinta ei noudata JAMK:n opinnäytetyöprosessia.", 
                                 "Aihe on rutiininomainen, mutta tukee opiskelijan opintoja ja ammatillista kehittymistä.",
                                 "Aihe on alalle melko tavanomainen eikä sisällä uusia näkökulmia.",
@@ -25,11 +23,10 @@
 
 				},
 				{
-					"2": 
+					"text": 
 					[
-							{
-							 "text": "Opinnäytetyön ongelman/tavoitteiden määritys ja täsmennys"
-							},
+
+							 	"1.2 Opinnäytetyön ongelman/tavoitteiden määritys ja täsmennys",
 								"Opinnäytetyön ongelma ja tavoitteet ovat määrittelemättä.", 
                                 "Opinnäytetyön ongelmaa ja tavoitteita on pyritty määrittelemään, mutta ne jäävät epäselväksi.",
                                 "Opinnäytetyön ongelma ja tavoitteet ovat suuntaa-antavia. Ne on määritelty osittain tutkimus-/kehittämistehtävän mukaisesti.",
@@ -42,12 +39,10 @@
 
 				},
 				{
-					"3": 
+					"text": 
 					[
-							{
-							 "text": "Kehittämis-/tutkimusote ja sen osuvuus"
-							},
-							
+
+								"1.3 Kehittämis-/tutkimusote ja sen osuvuus",
 								"Kehittämis-/tutkimusote puuttuu.", 
                                 "Kehittämis-/tutkimusote on kuvattu, mutta se ei sovellu ilmiöön.",
                                 "Kehittämis-/tutkimusote on kuvattu, mutta sitä ei ole perusteltu.",
@@ -70,11 +65,10 @@
 		"subtopic": 
 		[
 				{
-					"1": 
+					"text": 
 					[
-							{
-							 "text": "Tietoperustan/teorian, viitekehyksenosuvuus ja riittävyys"
-							},
+
+								"2.1 Tietoperustan/teorian, viitekehyksenosuvuus ja riittävyys",
 								"Tietoperusta puuttuu.", 
                                 "Tietoperustaon suppea, oppikirjapohjainen ja sivuaa kehittämis-/tutkimusaihetta. Lähdeaineisto on osin vanhentunutta.",
                                 "Tietoperustaon suppeahko, oppikirjapohjainen, tukee kehittämis-/tutkimusaihetta ja liittyy ilmiöön.",
