@@ -1,0 +1,93 @@
+[
+	{
+		"item":
+		{
+		"topic": "1. Aiheen ja lähestymistavan valinta",
+		"subtopic": 
+		[
+				{
+					"1": 
+					
+					[
+
+						{
+						"text": "1.1 Aiheen vaativuus"
+					},
+								"Aiheen valinta ei noudata JAMK:n opinnäytetyöprosessia.", 
+                                "Aihe on rutiininomainen, mutta tukee opiskelijan opintoja ja ammatillista kehittymistä.",
+                                "Aihe on alalle melko tavanomainen eikä sisällä uusia näkökulmia.",
+                                "Aihe on tavanomainen, mutta sisältää uusia näkökulmia.",
+                                "Aihe on melko haastava ja tuo uutta toimeksiantajalle.",
+                                "Aihe on haastava ja tuo uutta alalle."
+                            ]
+
+
+
+				},
+				{
+					"2": 
+					[
+							{
+							 "text": "Opinnäytetyön ongelman/tavoitteiden määritys ja täsmennys"
+							},
+								"Opinnäytetyön ongelma ja tavoitteet ovat määrittelemättä.", 
+                                "Opinnäytetyön ongelmaa ja tavoitteita on pyritty määrittelemään, mutta ne jäävät epäselväksi.",
+                                "Opinnäytetyön ongelma ja tavoitteet ovat suuntaa-antavia. Ne on määritelty osittain tutkimus-/kehittämistehtävän mukaisesti.",
+                                "Opinnäytetyön ongelma ja tavoitteet on rajattu ja määritelty melko selkeästi.",
+                                "Opinnäytetyön ongelma ja tavoitteet on rajattu ja määritelty selkeästi.",
+                                "Opinnäytetyön ongelma ja opinnäytetyön rajaus on fokusoitu hyvin. Tavoitteet ovat selvät ja ne on asetettu oikein ongelman/kehittämistehtävän kannalta."
+                            ]
+
+
+
+				},
+				{
+					"3": 
+					[
+							{
+							 "text": "Kehittämis-/tutkimusote ja sen osuvuus"
+							},
+							
+								"Kehittämis-/tutkimusote puuttuu.", 
+                                "Kehittämis-/tutkimusote on kuvattu, mutta se ei sovellu ilmiöön.",
+                                "Kehittämis-/tutkimusote on kuvattu, mutta sitä ei ole perusteltu.",
+                                "Kehittämis-/tutkimusote on kuvattu ja perustelut valinnalle on esitetty.",
+                                "Kehittämis-/tutkimusote on kuvattu ja perusteltu. Se soveltuu ilmiöön.",
+                                "Kehittämis-/tutkimusote on kuvattu perusteellisesti. Se soveltuu ilmiöön ja perustelut onesitetty. Ote on haastava."
+                            ]
+
+
+
+				}
+
+
+		]
+	}
+},
+	{ "item":
+		{
+		"topic": "2. Tietoperusta ja työn rakenne",
+		"subtopic": 
+		[
+				{
+					"1": 
+					[
+							{
+							 "text": "Tietoperustan/teorian, viitekehyksenosuvuus ja riittävyys"
+							},
+								"Tietoperusta puuttuu.", 
+                                "Tietoperustaon suppea, oppikirjapohjainen ja sivuaa kehittämis-/tutkimusaihetta. Lähdeaineisto on osin vanhentunutta.",
+                                "Tietoperustaon suppeahko, oppikirjapohjainen, tukee kehittämis-/tutkimusaihetta ja liittyy ilmiöön.",
+                                "Tietoperusta on laajahko, aihealueeseen liittyvä, ei oppikirjapohjainen. Mukana on vieraskielistä kirjallisuutta. Tietoperusta on ilmiön kannalta pääosin relevanttia. Lähdekriittisyyttä on noudatettu.",
+                                "Tietoperusta on laaja ja liittyy aihealueeseen. Osa on vieraskielistä. Lähdeaineisto on ilmiön kannalta uutta ja relevanttia. Lähdekriittisyyttä on noudatettu.",
+                                "Tietoperusta on laaja ja liittyy aihealueeseen. Merkittävä osa on vieraskielistä. Lähdeaineisto on ilmiön kannalta uutta ja relevanttia. Lähdekriittisyyttä on noudatettu."
+                            ]
+
+
+
+				}
+			]
+	}
+}
+]
+
