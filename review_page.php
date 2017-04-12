@@ -74,7 +74,7 @@ if(isset($_SESSION['thesis']))
 
 */
 echo "<section>";
-if(isset($_POST['thesis']))
+if(isset($_SESSION['thesis']))
 {
 	$grades = $db->query("SELECT * FROM Grade WHERE Thesis_thesisID = '".$_SESSION['thesis']."'");
 
