@@ -17,28 +17,49 @@ require_once("../db_init.php");
 
 
 <section>
-<!--  Thesis selection for developing purposes -->
+<!--  Thesis and user selection for developing purposes -->
 			<?php
 
 				if(isset($_POST['thesis']))
 				{
 					$_SESSION['thesis'] = $_POST['thesis'];
-					echo "<H2> Thesis {$_SESSION['thesis']} selected</H2>";
+					echo "<H2> Thesis {$_SESSION['thesis']} selected   ";
 
 				}
 				else
 				{
-					echo "<H2> No thesis selected</H2>";
+					$_SESSION['thesis'] = NULL;
+					echo "<H2> No thesis selected   ";
 				}
+				if(isset($_POST['user']))
+				{
+					$_SESSION['user'] = $_POST['user'];
+
+					echo ", reviewing as {$_SESSION['user']}";
+
+				}
+				else
+				{
+					echo ", no user selected";
+
+				}
+
+
+				echo "</H2>";
 
 			?>
 
-			<h2>Select thesis</h2>
 			<form method="post" action="review_page.php">
 
 				<select name="thesis">
 					<option value="1">1</option>
 					<option value="2">2</option>
+				</select>
+				<br>
+
+				<select name="user">
+					<option value="supervisor1">supervisor1</option>
+					<option value="supervisor2">supervisor2</option>
 				</select>
 				<br>
 				<input type="submit" value="Submit" />
