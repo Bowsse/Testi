@@ -1,25 +1,56 @@
+<?php
+session_start();
+include_once("head.php");
+require_once("../db_init.php");
+
+?>
 
 <head>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
 </head>
 
 <?php
-include_once("head.php");
-require_once("../db_init.php");
-
 
 
 $json = file_get_contents("json/criteria.json");
 
-//$json = '[{"topic": "1", "subtopic": [{	"1.1 Aiheen vaativuus": [	"Aiheen valinta ei noudata JAMK:n pinnäytetyöprosessia.",      "Aihe on rutiininomainen, mutta tukee opiskelijan opintoja ja ammatillista kehittymistä.",    "Aihe on alalle melko tavanomainen eikä sisällä uusia näkökulmia.",       "Aihe on tavanomainen, mutta sisältää uusia näkökulmia.",        "Aihe on melko haastava ja tuo uutta toimeksiantajalle.",     "Aihe on haastava ja tuo uutta alalle."    ]		}	]	}	]';
-//$json = '[{"topic": "1", "subtopic": [{ "1.1 Aiheen vaativuus": ["a"], "1.2": ["b"]}]}]';
-
 $tabledata = json_decode($json, true);
 ?>
+
+<section>
+
+<?php
+
+	if(isset($_POST['thesis']))
+	{
+		$_SESSION['thesis'] = $_POST['thesis'];
+		echo "<H2> Thesis {$_SESSION['thesis']} selected</H2>";
+
+	}
+	else
+	{
+		echo "<H2> No thesis selected</H2>";
+	}
+
+?>
+
+
+<h2>Select thesis</h2>
+<form method="post" action="evaluation_form.php">
+
+	<select name="thesis">
+		<option value="1">1</option>
+		<option value="2">2</option>
+	</select>
+	<br>
+	<input type="submit" value="Submit" />
+</form>
+</section>
 
 <section>
 
@@ -41,10 +72,11 @@ foreach($tabledata as $iTopic=>$item)
 		echo "<tr>";
 		foreach($sub['text'] as $key=>$description)
 		{
-			
-			echo "<td>{$description}";
-
-				if($key > 0)
+			if($key == 0)
+			{
+			echo "<td>{$description}</td>";
+		    }
+		    else
 			{
 
 				// Radiobutton name and value to match criteria numbering
@@ -52,21 +84,26 @@ foreach($tabledata as $iTopic=>$item)
 				$topic = $iTopic + 1;
 				$row = $iRow + 1;
 				$radioRow = "{$topic}{$row}";
-				echo "<input type='radio' name='" . $radioRow . "' value='" . $radioValue .  "'></td>";
+				$radioID = "{$radioRow}{$radioValue}";
+				echo "<td><label for='" . $radioID . "'><input type='radio' name='" . $radioRow . "' id='" . $radioID . "' value='" . $radioValue .  "'><br>{$description}</label></td>";
+
 
 			}
-			else{echo "</td>";}
+
 		}
 		echo "</tr>";
-
  }
 }
-echo "</table>\n";
+
+
+				echo "</table>\n";
 
 				echo "<b>Comments</b>"; 
 				$placeholder = "Write your comments here";
 
 ?>
+
+
 
 <textarea placeholder="<?php echo $placeholder?>"rows="5" cols="50" name="comments" style="width:100%;"></textarea>
 		<br>
@@ -81,55 +118,37 @@ echo "</table>\n";
 <?php
 
 //TODO: Count averages by looping through form
+//TODO: session shit and confirmation popup?
 $grade1 = ($_POST["11"] + $_POST["12"] + $_POST["13"]) / 3;
 $grade2 = ($_POST["21"]) / 1;
 $total = ($grade1 + $grade2) / 2;
 
-echo "<h2> Grade 1: <b> " . $grade1 . "</b> <h2>";
-echo "<h2> Grade 2: <b> " . $grade2 . "</b> <h2>";
-echo "<h1> Total average grade: <b> " . $total . "</b> <h1>";
-
-/*
-$title0 = $tabledata[0]['item']['topic'];
 
 
-$title1 = $tabledata[0]['item']['subtopic'][0]['text'][0]['title'];
-$title2 = $tabledata[0]['item']['subtopic'][1]['text'][0]['title'];
+if(isset($_SESSION['thesis']))
+{
 
-$vittu1 = $tabledata[0]['item']['subtopic'][0]['text'][1];
-$vittu2 = $tabledata[0]['item']['subtopic'][0]['text'][2];
-$vittu3 = $tabledata[0]['item']['subtopic'][0]['text'][3];
-$vittu4 = $tabledata[0]['item']['subtopic'][0]['text'][4];
-$vittu5 = $tabledata[0]['item']['subtopic'][0]['text'][5];
-$vittu6 = $tabledata[0]['item']['subtopic'][0]['text'][6];
+	$sql = "INSERT INTO Grade (field1, field2, Thesis_thesisID) VALUES ('".$grade1."', '".$grade2."', '".$_SESSION['thesis']."')";
 
+	$db->exec($sql);
 
-	echo '<pre>' . print_r($title0,true) . '</pre>';
+	$grades = $db->query("SELECT * FROM Grade WHERE Thesis_thesisID = '".$_SESSION['thesis']."'");
 
-	echo '<pre>' . print_r($title1,true) . '</pre>';
-		echo '<pre>' . print_r($title2,true) . '</pre>';
+	echo "<table border='1'>\n";
 
-	echo '<pre>' . print_r($vittu1,true) . '</pre>';
-	echo '<pre>' . print_r($vittu2,true) . '</pre>';
-	echo '<pre>' . print_r($vittu3,true) . '</pre>';
-	echo '<pre>' . print_r($vittu4,true) . '</pre>';
-	echo '<pre>' . print_r($vittu5,true) . '</pre>';
-	echo '<pre>' . print_r($vittu6,true) . '</pre>';
+	echo "<tr><td>ID</td><td>grade 1</td><td>grade 2</td><td>grade 3</td><td>grade 4</td><td>grade 5</td><td>reviewer</td><td>thesis ID</td></tr>\n";
+
+	while($row = $grades->fetch(PDO::FETCH_ASSOC)) {
+	  echo "<tr><td>{$row['gareID']}</td><td>{$row['field1']}</td><td>{$row['field2']}</td><td>{$row['field3']}</td><td>{$row['field4']}</td><td>{$row['field5']}</td><td>{$row['Person_personID']}</td><td>{$row['Thesis_thesisID']}</td></tr>\n";
+	}
+
+	echo "</table>\n";
+
+}
 
 
-*/
-echo "</section>";
-/*
-
-echo "<br>";
-echo "<br>";
-
-echo "<section>";
-
-
-	echo '<pre>' . print_r($tabledata, true) . '</pre>';
 
 echo "</section>";
-*/
+
 
 ?>
